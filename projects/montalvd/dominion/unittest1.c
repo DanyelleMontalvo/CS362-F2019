@@ -29,7 +29,7 @@ int test1 () {
     int p = 0;
     G.handCount[p] = 5;
     G.hand[0][0] = baron;
-    G.hand[0][1] = estate;
+    G.hand[0][1] = copper;
     G.hand[0][2] = copper;
     G.hand[0][3] = copper;
     G.hand[0][4] = copper;
@@ -47,7 +47,6 @@ int test2(){
                  sea_hag, tribute, smithy
                 };
 
-    printf ("Starting Test 2.\n");
     printf ("\n------------------------TESTING FOR DECREMENT OF ESTATE CARD------------------------\n");
     int numPlayer = 2;
     int seed = 23;
@@ -78,7 +77,7 @@ int test3(){
                 };
 
     printf ("Starting Test 3\n");
-    printf ("\n------------------------TESTING FOR NO ESTATE CARD------------------------\n");
+    printf ("\n----------TESTING FOR INCREASE BUYS AND NO ESTATE CARD-----\n");
     int numPlayer = 2;
     int seed = 23;
     int r;
@@ -134,6 +133,38 @@ int test4(){
     return 0;
 }
 
+int test5(){
+    struct gameState G;
+    int k[10] = {baron, gardens, embargo, village, minion, mine, cutpurse,
+                 sea_hag, tribute, smithy
+                };
+
+    printf ("Starting Test 5.\n");
+    printf ("\n------TESTING FOR NORMAL ESTATE IN HAND FUNCTION-----\n");
+    int numPlayer = 2;
+    G.coins = 1;
+    G.supplyCount[estate] = 10;
+    int seed = 23;
+    int r;
+    memset(&G, 23, sizeof(struct gameState));
+    r = initializeGame(numPlayer, k, seed, &G);
+    int p = 0;
+    G.handCount[p] = 4;
+    G.hand[0][0] = estate;
+    G.hand[0][1] = estate;
+    G.hand[0][2] = copper;
+    G.hand[0][3] = copper;
+    G.hand[0][4] = baron;
+    int choice1 = 1;
+    int bonus = -1;
+    G.coins = 0;
+    cardEffect(baron, choice1, -1, -1, &G, 0, &bonus);
+    //assert(G.discardCount[0] == 1);
+    assert(G.coins == 4);    
+
+    return 0;
+}
+
 
 
 int main(){
@@ -141,4 +172,5 @@ int main(){
 	test2();
 	test3();
 	test4();
+	test5();
 }

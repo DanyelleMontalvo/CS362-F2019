@@ -19,8 +19,8 @@ int test1 () {
                  sea_hag, tribute, smithy
                 };
 
-    printf ("Starting unit Test 1.\n");
-    printf ("\n------------------------TESTING FOR NEGATIVE CHECK-----------------\n");
+    printf ("Starting unit Test 2.\n");
+    printf ("\n-----------TESTING FOR NEGATIVE CHECK-----------\n");
 	int numPlayer = 2;
 	int seed = 23;
 	int r;

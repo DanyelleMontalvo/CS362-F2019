@@ -42,7 +42,7 @@ int test1 () {
     int bonus = -1;
     cardEffect(mine, choice1, silver, -1, &G, 0, &bonus);
     assert(G.handCount[0] == 3);    
-
+    assert(G.hand[0][2] == copper);
     return 0;
 }
 

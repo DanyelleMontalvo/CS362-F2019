@@ -35,8 +35,8 @@ int test1 () {
     G.hand[0][3] = (rand()%(26-1+1)) + 1;
     G.hand[0][4] = (rand()%(26)) + 1; 
     printf("\nPlayer's hand is:\n%d\n%d\n%d\n%d\n%d\n", G.hand[0][0], G.hand[0][1], G.hand[0][2], G.hand[0][3], G.hand[0][4]);
-    double choice1 = rand()/((double)1.0;
-    prinft("\nChoice is equal to: %d\n", choice1);
+    int choice1 = (rand()%2);
+    printf("\nChoice is equal to: %d\n", choice1);
     int bonus = -1;
     cardEffect(baron, choice1, -1, -1, &G, 0, &bonus);
     assert(G.handCount[p] == 4);    
@@ -46,8 +46,8 @@ int test1 () {
 
 
 int main(){
+	srand(time(NULL));
 	for(int i = 0; i <= 100; i++){
-		srand(time());
 		test1();
 	}
 }
